@@ -19,6 +19,9 @@
     <span class="link">
       <%= link_to 'Update Task', edit_task_path(task.id) %>
     </span>
+    <span class="link">
+      <%= link_to 'Send Reminder', reminder_path(task.id), method: 'post' %>
+    </span>
   </div>
   </div>
 </div>
