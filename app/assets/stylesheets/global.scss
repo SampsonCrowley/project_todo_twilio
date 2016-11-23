@@ -7,14 +7,26 @@
   border-radius: 4px;
   background: #eee;
   font-size: 20px;
+  margin-bottom: 25px;
   .description, .completed {
     margin: 20px;
     display: inline-block;
   }
   .links{
+    font-size: 12px;
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
     background: #ddd;
     color: #333;
+    .link {
+      margin-right: 12px;
+    }
+  }
+}
+
+.field_with_errors {
+  color: #a94442;
+  input {
+    border-color: #a94442;
   }
 }

@@ -1,5 +1,4 @@
-<ul>
-  <% @tasks.each do |task| %>
-    <%= render partial: 'shared/task', locals:{task: task} %>
-  <% end %>
-</ul>
+
+<% @tasks.each do |task| %>
+  <%= render partial: 'shared/task', locals:{task: task} %>
+<% end %>

@@ -4,10 +4,21 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    flash[:info] = "Task deleted!"
     redirect_to tasks_path
   end
 
   def edit
+  end
+
+  def update 
+    if @task.update(whitelisted)
+      flash[:success] = 'Task updated!'
+      redirect_to @task
+    else
+      flash.now[:danger] = "Description field is required."
+      render :edit
+    end
   end
 
   def index
@@ -20,9 +31,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    if @task = Task.create(whitelisted)
+    @task = Task.new(whitelisted)
+    if @task.save
+      flash[:success] = 'Task created!'
       redirect_to @task
     else
+      flash.now[:danger] = "Please enter a description"
       render :new
     end
   end
@@ -40,6 +54,12 @@ class TasksController < ApplicationController
     end
 
     def format_date
-      params[:task][:completion_date] = Date.strptime(params[:task][:completion_date], "%m/%d/%Y")
+      return if params[:task][:completion_date] == ''
+      begin
+        completion_date = Date.strptime(params[:task][:completion_date], "%m/%d/%Y")
+        params[:task][:completion_date] = completion_date
+      rescue
+        params[:task][:completion_date] = Date.parse(params[:task][:completion_date])
+      end
     end
 end
