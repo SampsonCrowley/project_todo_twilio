@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def edit
   end
 
-  def update 
+  def update
     if @task.update(whitelisted)
       flash[:success] = 'Task updated!'
       redirect_to @task
@@ -36,7 +36,6 @@ class TasksController < ApplicationController
       flash[:success] = 'Task created!'
       redirect_to @task
     else
-      flash.now[:danger] = "Please enter a description"
       render :new
     end
   end
@@ -46,7 +45,7 @@ class TasksController < ApplicationController
 
   private
     def whitelisted
-      params.require(:task).permit(:completion_date, :description)
+      params.require(:task).permit(:completion_date, :description, :completed)
     end
 
     def find_task
@@ -54,7 +53,7 @@ class TasksController < ApplicationController
     end
 
     def format_date
-      return if params[:task][:completion_date] == ''
+      return if params[:task][:completion_date].nil? || params[:task][:completion_date] == ''
       begin
         completion_date = Date.strptime(params[:task][:completion_date], "%m/%d/%Y")
         params[:task][:completion_date] = completion_date

@@ -8,14 +8,22 @@
   background: #eee;
   font-size: 20px;
   margin-bottom: 25px;
-  .description, .completed {
+  .description, .due-date {
     margin: 20px;
     display: inline-block;
+  }
+  .completed {
+
+    &, a, .description, .due-date {
+      color: #3c763d;
+      text-decoration: line-through;
+    }
+
   }
   .links{
     font-size: 12px;
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 36px;
     background: #ddd;
     color: #333;
     .link {

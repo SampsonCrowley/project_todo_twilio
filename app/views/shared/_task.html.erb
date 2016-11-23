@@ -1,15 +1,18 @@
 <div class="task col-xs-12">
-  <span class="description">
+  <span class="description<%= task.completed ? ' completed' : nil %>">
     Description:
     <%= link_to task_path(task.id) do %>
     <%= task.description %>
     <% end %>
   </span>
-  <span class="completed">
-    <%= task.completion_date ? "Completed: #{task.completion_date.strftime("%Y-%m-%d")}" : nil %>
+  <span class="due-date">
+    <%= is_completed(task) %>
   </span>
   <div class="row">
   <div class="links">
+    <span class="link">
+      <%= toggle_complete(task) %>
+    </span>
     <span class="link">
       <%= link_to 'Delete Task', task_path(task.id), method: 'delete' %>
     </span>
