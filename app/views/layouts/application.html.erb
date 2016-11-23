@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TodoTwilio</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>TodoTwilio</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <div id="navbar" class="navbar-default navbar">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Tasks</a></li>
+      <li><a href="<%= new_task_path %>">New Task</a></li>
+    </ul>
+  </div>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

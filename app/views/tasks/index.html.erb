@@ -1,5 +1,5 @@
 <ul>
-<% @tasks.each do |task| %>
-  <li><%= task.description %><%= task.completion_date ? ", #{task.completion_date}" : nil%> </li>
-<% end %>
+  <% @tasks.each do |task| %>
+    <%= render partial: 'shared/task', locals:{task: task} %>
+  <% end %>
 </ul>
