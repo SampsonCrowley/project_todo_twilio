@@ -1,0 +1,5 @@
+<ul>
+<% @tasks.each do |task| %>
+  <li><%= task.description %><%= task.completion_date ? ", #{task.completion_date}" : nil%> </li>
+<% end %>
+</ul>
