@@ -1,0 +1,19 @@
+<div class="task">
+  <span class="description">
+    Description:
+    <%= link_to task_path(task.id) do %>
+    <%= task.description %>
+    <% end %>
+  </span>
+  <span class="completed">
+    <%= task.completion_date ? "Completed: #{task.completion_date.strftime("%Y-%m-%d")}" : nil %>
+  </span>
+  <div class="links">
+    <span class="link">
+      <%= link_to 'Delete Task', task_path(task.id), method: 'delete' %>
+    </span>
+    <span class="link">
+      <%= link_to 'Update Task', edit_task_path(task.id) %>
+    </span>
+  </div>
+</div>
