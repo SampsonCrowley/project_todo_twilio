@@ -25,6 +25,10 @@
     <%= f.label :priority, class: 'form-label' %>
     <%= f.number_field :priority, class: 'form-control', min: 0, max: 10 %>
   </div>
+  <div class="form-group col-md-4">
+    <%= check_box_tag(:"task[sticky]", true) %>
+    <%= label_tag(:"task[sticky]", "Sticky?", class: "sticky") %>
+  </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">

@@ -14,4 +14,8 @@ module TasksHelper
       link_to 'Mark Complete', task_path(task.id, task: { completed: Date.today }), method: 'patch'
     end
   end
+
+  def priority(task)
+    task.priority ? "Priority: #{task.priority}" : nil
+  end
 end

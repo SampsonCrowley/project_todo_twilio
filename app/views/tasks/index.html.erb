@@ -1,4 +1,9 @@
-
+<div class="col-xs-12">
+  <h4 class="sorting">Sort:
+    <span><%= link_to 'Highest Priority', tasks_path(sort_by: 'priority') %></span>
+    <span><%= link_to 'Due Date', tasks_path %></span>
+  </h4>
+</div>
 <% @tasks.each do |task| %>
   <%= render partial: 'shared/task', locals:{task: task} %>
 <% end %>

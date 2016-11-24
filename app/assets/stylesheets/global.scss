@@ -8,13 +8,18 @@
   background: #eee;
   font-size: 20px;
   margin-bottom: 25px;
-  .description, .due-date {
+
+  .priority{
+    float: right;
+  }
+
+  .description, .due-date, .priority {
     margin: 20px;
     display: inline-block;
   }
   .completed {
 
-    &, a, .description, .due-date {
+    &, a, .description, .due-date, .priority {
       color: #3c763d;
       text-decoration: line-through;
     }
@@ -32,9 +37,23 @@
   }
 }
 
+.sticky {
+  display: inline-block;
+  margin: 25px 0 0 4px;
+  font-size: 20px;
+}
+
 .field_with_errors {
   color: #a94442;
   input {
     border-color: #a94442;
+  }
+}
+
+.sorting {
+  margin-bottom: 25px;
+  float: right;
+  span{
+    margin-right: 20px;
   }
 }
