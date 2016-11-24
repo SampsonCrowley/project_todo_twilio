@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123165415) do
+ActiveRecord::Schema.define(version: 20161123235416) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "description"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161123165415) do
     t.date     "completed"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "priority"
   end
 
 end

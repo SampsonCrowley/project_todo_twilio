@@ -23,7 +23,16 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    @tasks = @tasks.sort_by {|task| [(task.completion_date ? 0 : 1), (task.completion_date || 0)]}
+    if params[:sort_by] == 'priority'
+      @tasks = @tasks.sort_by do |task|
+        [(task.priority ? 0 : 1),
+        (-1 * (task.priority || 0)),
+         (task.completion_date ? 0 : 1),
+         (task.completion_date || 0)]
+      end
+    else
+      @tasks = @tasks.sort_by {|task| [(task.completion_date ? 0 : 1), (task.completion_date || 0)]}
+    end
   end
 
   def new
@@ -45,7 +54,7 @@ class TasksController < ApplicationController
 
   private
     def whitelisted
-      params.require(:task).permit(:completion_date, :description, :completed)
+      params.require(:task).permit(:completion_date, :description, :completed, :priority)
     end
 
     def find_task

@@ -1,5 +1,5 @@
 class TextsController < ApplicationController
-  def send(id)
+  def send_text
     if task = Task.find_by_id(params[:id])
       Text.send_msg(task.description)
       flash[:success] = "Message Sent"

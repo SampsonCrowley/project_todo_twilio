@@ -21,6 +21,12 @@
   </div>
 </div>
 <div class="row">
+  <div class="form-group col-md-1">
+    <%= f.label :priority, class: 'form-label' %>
+    <%= f.number_field :priority, class: 'form-control', min: 0, max: 10 %>
+  </div>
+</div>
+<div class="row">
   <div class="form-group col-md-4">
     <%= f.submit :submit, class: 'btn btn-block btn-primary' %>
   </div>
